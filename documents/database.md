@@ -3,6 +3,7 @@
 <!-- toc -->
 
 ## Connecting to a database
+## 链接到数据库
 
 In order to connect to a database, you need to import the database's driver first. For example:
 
