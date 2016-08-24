@@ -4,9 +4,10 @@
 <!-- toc -->
 
 ## Connecting to a database
-## 链接到数据库
+## 连接到数据库
 
 In order to connect to a database, you need to import the database's driver first. For example:
+为了能连接到数据库，你需要先导入数据库驱动，比如：
 
 ```go
 import _ "github.com/go-sql-driver/mysql"
@@ -66,10 +67,13 @@ func main() {
 ```
 
 #### Write Dialect for unsupported databases
+#### 为不被支持的数据库编写“方言”
 
 GORM officially supports the above databases, but you could write a dialect for unsupported databases.
+GORM 官方仅支持以上几种数据库，但你可以通过编写“方言”以支持更多的数据库。
 
 To write your own dialect, refer to: [https://github.com/jinzhu/gorm/blob/master/dialect.go](https://github.com/jinzhu/gorm/blob/master/dialect.go)
+要想编写你自己的“方言”，可以参考:
 
 ## Migration
 
