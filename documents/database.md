@@ -76,12 +76,16 @@ To write your own dialect, refer to: [https://github.com/jinzhu/gorm/blob/master
 要想编写你自己的“方言”，可以参考:
 
 ## Migration
+## 迁移
 
 ### Auto Migration
+### 自动迁移
 
 Automatically migrate your schema, to keep your schema update to date.
+自动迁移你的表模式，以使你的表模式更新到最新状态。
 
 **WARNING:** AutoMigrate will **ONLY** create tables, missing columns and missing indexes, and **WON'T** change existing column's type or delete unused columns to protect your data.
+**警告:** 自动迁移将 **仅仅** 创建新表，缺失的列以及缺失的索引，并且 **不会** 修改已经存在列的类型，或者删除那些没有使用的列以保护你的数据。
 
 ```go
 db.AutoMigrate(&User{})
@@ -93,6 +97,7 @@ db.Set("gorm:table_options", "ENGINE=InnoDB").AutoMigrate(&User{})
 ```
 
 ### Has Table
+### 表已经存在
 
 ```go
 // Check model `User`'s table exists or not
@@ -103,6 +108,7 @@ db.HasTable("users")
 ```
 
 ### Create Table
+### 创建表
 
 ```go
 // Create table for model `User`
@@ -113,6 +119,7 @@ db.Set("gorm:table_options", "ENGINE=InnoDB").CreateTable(&User{})
 ```
 
 ### Drop table
+### 删除表
 
 ```go
 // Drop model `User`'s table
@@ -126,8 +133,10 @@ db.DropTableIfExists(&User{}, "products")
 ```
 
 ### ModifyColumn
+### 修改列
 
 Modify column's type to given value
+将列的类型修改为指定类型
 
 ```go
 // change column description's data type to `text` for model `User`
@@ -135,6 +144,7 @@ db.Model(&User{}).ModifyColumn("description", "text")
 ```
 
 ### DropColumn
+### 删除列
 
 ```go
 // Drop column description from model `User`
@@ -153,6 +163,7 @@ db.Model(&User{}).AddForeignKey("city_id", "cities(id)", "RESTRICT", "RESTRICT")
 ```
 
 ### Indexes
+### 索引
 
 ```go
 // Add index for columns `name` with given name `idx_user_name`
