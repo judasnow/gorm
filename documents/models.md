@@ -11,10 +11,13 @@ type User struct {
     Birthday     time.Time
     Age          int
     Name         string  `gorm:"size:255"` // Default size for string is 255, reset it with this tag
+    																			 // string类型的默认长度是 255, 可以通过这个 tag 重新设置
     Num          int     `gorm:"AUTO_INCREMENT"`
 
     CreditCard        CreditCard      // One-To-One relationship (has one - use CreditCard's UserID as foreign key)
+    																	// one-to-one 关系（拥有一个 CreditCard - 使用 CreditCard 的 UserID 作为外键）
     Emails            []Email         // One-To-Many relationship (has many - use Email's UserID as foreign key)
+    																  // one-to-many 关系
 
     BillingAddress    Address         // One-To-One relationship (belongs to - use BillingAddressID as foreign key)
     BillingAddressID  sql.NullInt64
@@ -23,6 +26,7 @@ type User struct {
     ShippingAddressID int
 
     IgnoreMe          int `gorm:"-"`   // Ignore this field
+    																	 // 忽略这个字段
     Languages         []Language `gorm:"many2many:user_languages;"` // Many-To-Many relationship, 'user_languages' is join table
 }
 
